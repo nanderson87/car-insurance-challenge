@@ -1,4 +1,6 @@
-public abstract class  Product {
+package products;
+
+public abstract class Product {
     protected static final int MINIMUM_PRICE = 0;
 
     private String name;
@@ -13,6 +15,8 @@ public abstract class  Product {
 
     protected abstract int calculateNewPrice();
 
+    protected abstract void updateSellIn();
+
     public void updatePrice() {
         this.setPrice(this.calculateNewPrice());
         this.updateSellIn();
@@ -20,10 +24,6 @@ public abstract class  Product {
 
     public boolean saleDateExpired() {
         return sellIn <= 0;
-    }
-
-    protected void updateSellIn() {
-        this.setSellIn(this.getSellIn() - 1);
     }
 
     protected void setSellIn(int sellIn) {
@@ -45,6 +45,5 @@ public abstract class  Product {
     public int getPrice() {
         return price;
     }
-
 
 }
