@@ -26,7 +26,7 @@ public class CarInsuranceTest {
 
         List<Product> result = carInsurance.updatePrice();
 
-        assertEquals(0, result.get(0).price);
+        assertEquals(0, result.get(0).getPrice());
     }
 
     @ParameterizedTest(name = "sell in {0}")
@@ -41,7 +41,7 @@ public class CarInsuranceTest {
 
         List<Product> result = carInsurance.updatePrice();
 
-        assertEquals(price - 1, result.get(0).price);
+        assertEquals(price - 1, result.get(0).getPrice());
     }
 
     @ParameterizedTest(name = "sell in {0}")
@@ -56,7 +56,7 @@ public class CarInsuranceTest {
 
         List<Product> result = carInsurance.updatePrice();
 
-        assertEquals(price - 2, result.get(0).price);
+        assertEquals(price - 2, result.get(0).getPrice());
     }
 
     @ParameterizedTest(name = "sell in {0}")
@@ -71,7 +71,7 @@ public class CarInsuranceTest {
 
         List<Product> result = carInsurance.updatePrice();
 
-        assertEquals(price + 1, result.get(0).price);
+        assertEquals(price + 1, result.get(0).getPrice());
     }
 
     @ParameterizedTest(name = "sell in {0}")
@@ -86,7 +86,7 @@ public class CarInsuranceTest {
 
         List<Product> result = carInsurance.updatePrice();
 
-        assertEquals(price + 2, result.get(0).price);
+        assertEquals(price + 2, result.get(0).getPrice());
     }
 
     @Test
@@ -99,7 +99,7 @@ public class CarInsuranceTest {
         final CarInsurance carInsurance = new CarInsurance(products);
 
         List<Product> result = carInsurance.updatePrice();
-        assertEquals(limitPrice50, result.get(0).price);
+        assertEquals(limitPrice50, result.get(0).getPrice());
     }
 
     @Test
@@ -112,7 +112,7 @@ public class CarInsuranceTest {
         final CarInsurance carInsurance = new CarInsurance(products);
 
         List<Product> result = carInsurance.updatePrice();
-        assertEquals(price, result.get(0).price);
+        assertEquals(price, result.get(0).getPrice());
     }
 
     @Test
@@ -126,7 +126,7 @@ public class CarInsuranceTest {
 
         List<Product> result = carInsurance.updatePrice();
 
-        assertEquals(sellIn, result.get(0).sellIn);
+        assertEquals(sellIn, result.get(0).getSellIn());
     }
 
     @ParameterizedTest(name = "sell in {0}")
@@ -141,7 +141,7 @@ public class CarInsuranceTest {
 
         List<Product> result = carInsurance.updatePrice();
 
-        assertEquals(price + 2, result.get(0).price);
+        assertEquals(price + 2, result.get(0).getPrice());
     }
 
     @ParameterizedTest(name = "sell in {0}")
@@ -156,7 +156,7 @@ public class CarInsuranceTest {
 
         List<Product> result = carInsurance.updatePrice();
 
-        assertEquals(price + 3, result.get(0).price);
+        assertEquals(price + 3, result.get(0).getPrice());
     }
 
     @Test
@@ -170,7 +170,7 @@ public class CarInsuranceTest {
 
         List<Product> result = carInsurance.updatePrice();
 
-        assertEquals(0, result.get(0).price);
+        assertEquals(0, result.get(0).getPrice());
     }
 
     @ParameterizedTest(name = "sell in {0}")
@@ -186,7 +186,7 @@ public class CarInsuranceTest {
 
         List<Product> result = carInsurance.updatePrice();
 
-        assertEquals(price - 2, result.get(0).price);
+        assertEquals(price - 2, result.get(0).getPrice());
     }
 
     @ParameterizedTest(name = "sell in {0}")
@@ -202,7 +202,7 @@ public class CarInsuranceTest {
 
         List<Product> result = carInsurance.updatePrice();
 
-        assertEquals(price - 4, result.get(0).price);
+        assertEquals(price - 4, result.get(0).getPrice());
     }
 
     @ParameterizedTest(name = "sell in {0}")
@@ -216,6 +216,6 @@ public class CarInsuranceTest {
 
         List<Product> result = carInsurance.updatePrice();
 
-        assertEquals(0, result.get(0).price);
+        assertEquals(0, result.get(0).getPrice());
     }
 }
