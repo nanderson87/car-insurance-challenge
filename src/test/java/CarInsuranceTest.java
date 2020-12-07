@@ -204,4 +204,18 @@ public class CarInsuranceTest {
 
         assertEquals(price - 4, result.get(0).price);
     }
+
+    @ParameterizedTest(name = "sell in {0}")
+    @ValueSource(ints = {1, 0, -10})
+    @DisplayName("updatePrice | Super Sale | Price cannot become negative")
+    void updatePriceSuperSaleThePriceCannotBecomeNegative(final int sellIn) {
+        final Product superSaleWithPrice1 = new Product(SUPER_SALE_NAME, sellIn, 1);
+
+        List<Product> products = Arrays.asList(superSaleWithPrice1);
+        final CarInsurance carInsurance = new CarInsurance(products);
+
+        List<Product> result = carInsurance.updatePrice();
+
+        assertEquals(0, result.get(0).price);
+    }
 }
