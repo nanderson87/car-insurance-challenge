@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -174,13 +173,12 @@ public class CarInsuranceTest {
         assertEquals(0, result.get(0).price);
     }
 
-    @Disabled
     @ParameterizedTest(name = "sell in {0}")
     @ValueSource(ints = {20, 10, 1})
     @DisplayName("updatePrice | Super Sale | Price should decrease two unit if there are still days to sell it")
-    void updatePriceSuperSalePriceDecreaseTwoUnits() {
+    void updatePriceSuperSalePriceDecreaseTwoUnits(final int sellIn) {
         final int price = 20;
-        final Product superSaleWithDaysToSell = new Product(SUPER_SALE_NAME, 1, price);
+        final Product superSaleWithDaysToSell = new Product(SUPER_SALE_NAME, sellIn, price);
 
         List<Product> products = Arrays.asList(superSaleWithDaysToSell);
         final CarInsurance carInsurance = new CarInsurance(products);
@@ -191,13 +189,12 @@ public class CarInsuranceTest {
         assertEquals(price - 2, result.get(0).price);
     }
 
-    @Disabled
     @ParameterizedTest(name = "sell in {0}")
     @ValueSource(ints = {0, -1, -10})
     @DisplayName("updatePrice | Super Sale | Price should decrease four units if there are no longer days to sell it")
-    void updatePriceSuperSalePriceDecreaseFourUnits() {
+    void updatePriceSuperSalePriceDecreaseFourUnits(final int sellIn) {
         final int price = 20;
-        final Product superSaleWithoutDaysToSell = new Product(SUPER_SALE_NAME, 1, price);
+        final Product superSaleWithoutDaysToSell = new Product(SUPER_SALE_NAME, sellIn, price);
 
         List<Product> products = Arrays.asList(superSaleWithoutDaysToSell);
         final CarInsurance carInsurance = new CarInsurance(products);
