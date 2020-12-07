@@ -1,7 +1,5 @@
 package products;
 
-import products.NormalProduct;
-
 public class SpecialFullCoverage extends NormalProduct {
 
     public SpecialFullCoverage(int sellIn, int price) {

@@ -1,5 +1,7 @@
 package products;
 
+import exceptions.InvalidProductStateException;
+
 public abstract class Product {
     protected static final int MINIMUM_PRICE = 0;
 
@@ -10,12 +12,14 @@ public abstract class Product {
     public Product(String name, int sellIn, int price) {
         this.name = name;
         this.sellIn = sellIn;
-        this.price = price;
+        this.setPrice(price);
     }
 
     protected abstract int calculateNewPrice();
 
     protected abstract void updateSellIn();
+
+    protected abstract void validateSpecificProductPrice(int price);
 
     public void updatePrice() {
         this.setPrice(this.calculateNewPrice());
@@ -30,8 +34,21 @@ public abstract class Product {
         this.sellIn = sellIn;
     }
 
-    protected void setPrice(int price) {
+    private void setPrice(int price) {
+        this.validatePrice(price);
         this.price = price;
+    }
+
+    private void validatePrice(int price) {
+        validateNegativePrice(price);
+        validateSpecificProductPrice(price);
+    }
+
+
+    private void validateNegativePrice(int price) {
+        if(price < MINIMUM_PRICE) {
+            throw new InvalidProductStateException(String.format("Product cannot be negatively priced %s", price));
+        }
     }
 
     public String getName() {

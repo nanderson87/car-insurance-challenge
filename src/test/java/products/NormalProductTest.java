@@ -1,16 +1,30 @@
 package products;
 
+import exceptions.InvalidProductStateException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 @DisplayName("Normal Product Test | Unit")
 public class NormalProductTest {
     private static final String NORMAL_PRODUCT_NAME = "Normal products";
+
+    @Test
+    @DisplayName("initialization | Throw InvalidProductStateException | When price is greater than 50")
+    void initializationThrowInvalidProductStateExceptionZeroPrice() {
+        final int greaterThan50 = 60;
+
+        InvalidProductStateException exception = assertThrows(InvalidProductStateException.class, () ->
+                new NormalProduct("product", 0, greaterThan50)
+        );
+        assertEquals(String.format("The product cannot be priced [%s] higher than %s", greaterThan50, 50),
+                exception.getMessage());
+    }
 
     @ParameterizedTest(name = "sell in {0}")
     @ValueSource(ints = {10, 0, -10})

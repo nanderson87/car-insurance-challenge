@@ -13,5 +13,12 @@ public class MegaCoverage extends Product {
 
     @Override
     protected void updateSellIn() {
+        return;
     }
+
+    @Override
+    protected void validateSpecificProductPrice(int price) {
+        return;
+    }
+
 }
