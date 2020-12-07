@@ -17,6 +17,7 @@
         <maven.failsafe.plugin.version>2.22.2</maven.failsafe.plugin.version>
         <junit.jupiter.version>5.7.0</junit.jupiter.version>
         <jacoco.version>0.8.2</jacoco.version>
+        <mockito.jupiter.verion>2.23.4</mockito.jupiter.verion>
     </properties>
 
     <build>
@@ -148,6 +149,13 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
             <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${mockito.jupiter.verion}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
