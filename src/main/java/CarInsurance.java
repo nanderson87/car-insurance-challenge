@@ -11,7 +11,7 @@ public class CarInsurance {
     public List<Product> updatePrice() {
         for (int i = 0; i < this.products.size(); i++) {
 
-            if (!this.products.get(i).name.equals("Full Coverage") && !this.products.get(i).name.equals("'Special Full Coverage'")) {
+            if (!this.products.get(i).name.equals("Full Coverage") && !this.products.get(i).name.equals("Special Full Coverage")) {
                 if (this.products.get(i).price > 0) {
                     if (!this.products.get(i).name.equals("Mega Coverage")) {
                         this.products.get(i).price = this.products.get(i).price - 1;
@@ -20,7 +20,7 @@ public class CarInsurance {
             } else {
                 if (this.products.get(i).price < 50) {
                     this.products.get(i).price = this.products.get(i).price + 1;
-                    if (this.products.get(i).name.equals("'Special Full Coverage'")) {
+                    if (this.products.get(i).name.equals("Special Full Coverage")) {
                         if (this.products.get(i).sellIn < 11) {
                             if (this.products.get(i).price < 50) {
                                 this.products.get(i).price = this.products.get(i).price + 1;
