@@ -26,7 +26,19 @@ Los únicos pasos en donde dude si invertir el orden fue el primero y el segundo
 * Respecto "Mega Coverage". Aunque el dominio habla de que es un producto legendario, en más de una oportunidad. No queda claro si hay más productos legendarios actualmente y si entre ellos comparten comportamiento o estado. Por esta razón, al hacer el refactor y modelizar los productos me decidí por no modelizar el concepto de legendario.
 * Sobre "Special Full Coverage" y "Mega Coverage": Acá me paso algo similar al punto anterior. En los casos de uso de "Special Full Coverage" nos dice que dada cierta condiciónl, el producto no esta más habilitado. Y respecto a "Mega Coverage" nos dice que no se puede vender. No me quedó muy claro si no estar habilitado y no que se pueda vender tenían la misma semántica. Además, el ejercició,  no deja claro si un producto aunque haya pasado sus días para venderlo, posteriormente no se puede vender o si pasa lo mismo al llegar al un valor 0. Por estos motivos en mi solución no modelicé estado o comportamiento relacionado a estar habilitado o disponible para su venta.
 
+## Ejemplo para ejecutar desde docker
+```
+docker image build -t demo .
+docker container run -d -t demo bash
+docker exec -it {container_id} bash
+
+//Dentro del bash
+cd home/app
+```
+Una vez realizado esto se pueden ejecutar los distintos comandos. 
+
 ## Comandos
-* `mvn test`, ejecuta los test y genera el reporte de cobertura. Una vez completado el comando el reporte se puede observar dentro de _/target/site/jacoco/index.html_
+* `mvn test`, ejecuta los test y genera el reporte de cobertura. Una vez completado el comando el reporte se puede observar dentro de _home/app/target/site/jacoco/index.html_
 * `mvn compile exec:java -Dexec.mainClass="After30DaysMain"`, compila la aplicacón y ejecuta el script que muestra por la salida standar el resultado de actualizar los precios por 30 días. 
-* `mvn clean verify`, ejecuta los test y goals de verificación de cobertura.  
+* `mvn clean verify`, ejecuta los test y goals de verificación de cobertura. 
+
