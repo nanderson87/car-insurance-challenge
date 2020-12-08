@@ -28,14 +28,14 @@ Los únicos pasos en donde dude si invertir el orden fue el primero y el segundo
 
 ## Ejemplo para ejecutar desde docker
 ```
-docker image build -t demo .
-docker container run -d -t demo bash
+docker image build -t car-insurance .
+docker container run -d -t car-insurance bash
 docker exec -it {container_id} bash
 
 //Dentro del bash
 cd home/app
 ```
-Una vez realizado esto se pueden ejecutar los distintos comandos. 
+Una vez realizado esto se pueden ejecutar los distintos comandos explicados a continuación. 
 
 ## Comandos
 * `mvn test`, ejecuta los test y genera el reporte de cobertura. Una vez completado el comando el reporte se puede observar dentro de _home/app/target/site/jacoco/index.html_
